@@ -3,12 +3,59 @@
 <head>
   <title>Blog</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'aplication', 'http://fonts.googleapis.com/css?family=Raleway:400, 700' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id="sidebar">
+		<div id="logo">
+			<%= link_to root_path do %>
+				<%= image_tag "logo.jpg" %>
+			<% end %>
+		</div>
 
-<%= yield %>
+		<ul>
+			<li class="category">Website</li>
+			<li><%= link_to "Blog", root_path %></li>
+			<li><%= link_to "About" %></li>
+		</ul>
+
+		<ul>
+		 <li class="category">Social</li>
+		 <li><a href="https://www.facebook.com/deivydas.ziziliauskas">Facebook</a></li>
+		 <li><a href="https://www.youtube.com/user/ecuSinner">Youtube</a></li>
+		 <li><a href="https://github.com/ecuSinner">Github</a></li>
+		 <li><a href="mailto:deivydas.ziziliauskas@gmail.com">Email</a></li>
+		</ul>
+
+		<p class="sign_in">Admin login</p>
+
+	</div>
+
+	<div id="main_content">
+		<div id="header">
+			
+			<p> All posts</p>
+			
+			
+			
+			<div class="buttons">
+				<p class="button"><%= link_to "New Post", new_post_path %></p>
+				<p class="button">Log Out</p>
+			</div>
+		</div>
+
+		<% flash.each do |name, msg| %>
+			<%= content_tag(:div, msg, class: "alert") %>
+		<% end %>
+	
+
+		<div id="post_content">
+			<%= yield %>
+		</div>
+
+	</div>
 
 </body>
 </html>
