@@ -7,10 +7,19 @@
 		<%= @post.title %>
 
 	</h2>
+
+
 	<p class="body">
 		<%= @post.body %>
 	</p>
-	<br>
+	
+	<p class="link">
+	<%= link_to "Visit this application", @post.link %>
+	</p>
+
+	<p class="link">
+	<%= link_to "Visit GitHub repo", @post.repo %>
+	</p>
 
 	<p class="date">
 		Submitted <%= time_ago_in_words(@post.created_at) %> Ago
